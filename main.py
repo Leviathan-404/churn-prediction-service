@@ -1,8 +1,13 @@
 from fastapi import FastAPI
 from pydantic import BaseModel
-from predict import predict_churn, get_risk_level, get_recommendation, prepare_input
+import sys
+from pathlib import Path
+sys.path.append(str(Path(__file__).resolve().parent.parent))
+sys.path.append(str(Path(__file__).resolve().parent.parent / "src"))
+from src.predict import predict_churn, get_risk_level, get_recommendation, prepare_input
 from enum import Enum
 from typing import Literal
+
 
 class GenderEnum(str, Enum):
     Male  = "Male"
